@@ -1,10 +1,10 @@
 package telegram
 
 import (
-	"github.com/hitokoto-osc/telegram_bot/config"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/tucnak/telebot.v2"
 	"time"
+	"yurikoto.com/yurikoto-telegram-bot/config"
 )
 
 // InitBot Telegram 机器人的初始化入口

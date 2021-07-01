@@ -3,13 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/hitokoto-osc/telegram_bot/build"
-	"github.com/hitokoto-osc/telegram_bot/config"
-	"github.com/hitokoto-osc/telegram_bot/event"
-	"github.com/hitokoto-osc/telegram_bot/telegram"
 	log "github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 	"os"
 	"runtime"
+	"yurikoto.com/yurikoto-telegram-bot/build"
+	"yurikoto.com/yurikoto-telegram-bot/config"
+	"yurikoto.com/yurikoto-telegram-bot/event"
+	"yurikoto.com/yurikoto-telegram-bot/telegram"
 )
 
 var (
@@ -26,16 +27,15 @@ func parseFlags() {
 	flag.BoolVar(&vvv, "vvv", false, "启用调试模式")
 	flag.Parse()
 	if h {
-		fmt.Printf(`一言电报机器人 v%s
+		fmt.Printf(`Yurikoto电报机器人 v%s
 使用: nginx [-hv] [-c filename]
-
 选项:
 `, build.Version)
 		flag.PrintDefaults()
 		os.Exit(0)
 	}
 	if v {
-		fmt.Printf("一言电报机器人服务 \n版本: %s\nGitCommit: %s\n编译时间: %s\n编译环境: %s\n", build.Version, build.CommitTag, build.CommitTime, runtime.Version())
+		fmt.Printf("Yurikoto电报机器人服务 \n版本: %s\nGitCommit: %s\n编译时间: %s\n编译环境: %s\n", build.Version, build.CommitTag, build.CommitTime, runtime.Version())
 		os.Exit(0)
 	}
 }
@@ -44,7 +44,7 @@ func initLogger() {
 	// Log as JSON instead of the default ASCII formatter.
 	log.SetFormatter(&log.TextFormatter{
 		FullTimestamp: true,
-		ForceColors: true,
+		ForceColors:   true,
 	})
 
 	// Output to stdout instead of the default stderr
@@ -65,7 +65,15 @@ func init() {
 	config.InitConfig(c)
 }
 
+var path = ""
+
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "-c" && os.Args[2] != "" {
+		path = os.Args[2]
+	}
+
+	viper.AddConfigPath(path)
+
 	log.Info("开始初始化机器人...")
 	bot := telegram.InitBot()
 	// 注册机器人事件

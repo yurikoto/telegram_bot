@@ -1,0 +1,4 @@
+telegram:
+  token: 1768564911:asdadgasdgsfge
+  registry: https://api.telegram.org
+  poll_interval: 1

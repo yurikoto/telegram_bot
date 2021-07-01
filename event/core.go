@@ -1,8 +1,8 @@
 package event
 
 import (
-	"github.com/hitokoto-osc/telegram_bot/event/command"
 	"gopkg.in/tucnak/telebot.v2"
+	"yurikoto.com/yurikoto-telegram-bot/event/command"
 )
 
 // RegisterEvent 定义了机器人事件处理的入口
@@ -11,11 +11,10 @@ func RegisterEvent(bot *telebot.Bot) {
 }
 
 func registerCommand(bot *telebot.Bot) {
-	command.Hitokoto(bot)
-	command.Image(bot)
+	command.Sentence(bot)
+	command.Wallpaper(bot)
 	command.Start(bot)
 	command.About(bot)
 	command.Ping(bot)
 	command.Help(bot)
-	command.Status(bot)
 }

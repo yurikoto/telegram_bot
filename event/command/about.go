@@ -10,11 +10,10 @@ import (
 // About 返回关于信息
 func About(b *telebot.Bot) {
 	b.Handle("/about", func(m *telebot.Message) {
-		_, err := b.Send(m.Chat, fmt.Sprintf(`ヒトコト（一言） 官方 Telegram 机器人。 目前仅提供简体中文支持。 主要提供一句话服务。
-* 官方网站: https://hitokoto.cn
-* 官方 QQ 群组: 70029304
-* 非官方 Telegram 群组: https://t.me/hitokoto
-* 项目开源地址：https://github.com/hitokoto-osc
+		_, err := b.Send(m.Chat, fmt.Sprintf(`Yurikoto 官方 Telegram 机器人。 目前仅提供简体中文支持。 提供台词、壁纸服务。
+* 官方网站: https://yurikoto.com
+* Telegram 群组: https://t.me/yurikoto_group
+* 项目开源地址：https://github.com/yurikoto
 --------------
 当前服务器时间：%s`, time.Now().Format("2006年1月2日 15:04:05")))
 		if err != nil {
