@@ -2,3 +2,6 @@ telegram:
   token: asdadgasdgsfge
   registry: https://api.telegram.org
   poll_interval: 1
+  rate_limit:
+    limit: 5
+    ttl: 3600

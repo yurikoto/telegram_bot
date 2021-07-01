@@ -10,7 +10,10 @@ func RegisterEvent(bot *telebot.Bot) {
 	registerCommand(bot)
 }
 
+// TODO: telebot-v3更新后封装频次控制到中间件
+
 func registerCommand(bot *telebot.Bot) {
+	// bot.Use(RateLimit)
 	command.Sentence(bot)
 	command.Wallpaper(bot)
 	command.Start(bot)

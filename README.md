@@ -13,6 +13,9 @@ Yurikoto Telegram机器人，fork自[hitokoto-osc/telegram_bot](https://github.c
 
 [Yurikoto主页](https://yurikoto.com) [Yurikoto机器人](https://t.me/yurikoto_bot)
 
+## TODO
+telebot-v3更新后封装频次控制为中间件
+
 ## 自部署指南
 
 ### 环境

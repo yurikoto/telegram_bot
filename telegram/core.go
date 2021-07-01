@@ -20,8 +20,8 @@ func InitBot() *telebot.Bot {
 		Poller: &telebot.LongPoller{
 			Timeout: time.Duration(c.PollInterval()) * time.Second,
 		},
-		Reporter: nil,
-		Client:   nil,
+		// Reporter: nil,
+		Client: nil,
 	})
 	if err != nil {
 		log.Fatalf("机器人初始化时发生致命错误：\n%s\n", err)

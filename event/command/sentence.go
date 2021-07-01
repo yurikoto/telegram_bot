@@ -5,11 +5,19 @@ import (
 	"github.com/levigross/grequests"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/tucnak/telebot.v2"
+	"yurikoto.com/yurikoto-telegram-bot/middlewares"
+	// "../event"
 )
 
 // Sentence 获取台词
 func Sentence(b *telebot.Bot) {
 	b.Handle("/sentence", func(m *telebot.Message) {
+		if !middlewares.RateLimit(m.Sender.Username) {
+			msg := "您的调用次数已超限，请稍后再试"
+			_, _ = b.Send(m.Chat, msg)
+			return
+		}
+
 		url := "https://v1.yurikoto.com/sentence"
 
 		// 请求接口
