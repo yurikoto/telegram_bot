@@ -4,6 +4,9 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/yurikoto/yurikoto-telegram-bot)](https://goreportcard.com/report/github.com/yurikoto/yurikoto-telegram-bot) [![Maintainability](https://api.codeclimate.com/v1/badges/293b8754a06684395ea0/maintainability)](https://codeclimate.com/github/yurikoto/yurikoto-telegram-bot/maintainability)
 
+## 须知
+如果您需要自部署本代码，请提交issue并提供您的服务器ip地址。审核通过后，我们将把您的服务器ip加入白名单。不在白名单内的ip会受到严格的频次控制（目前是每分钟5次）。
+
 ## 简介
 
 Yurikoto Telegram机器人，fork自[hitokoto-osc/telegram_bot](https://github.com/hitokoto-osc/telegram_bot) ，如果您有任何建议或改进想法，欢迎提交issue或pr。 
