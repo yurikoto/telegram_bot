@@ -18,7 +18,7 @@ func Wallpaper(bot *telebot.Bot) {
 		}
 
 		photo := &telebot.Photo{
-			File: telebot.FromURL("https://v1.yurikoto.com/wallpaper?type=rand&id=" + strconv.FormatInt(time.Now().UnixNano(), 10)),
+			File: telebot.FromURL("https://v1.yurikoto.com/wallpaper?type=rand&orientation=rand&id=" + strconv.FormatInt(time.Now().UnixNano(), 10)),
 		}
 		_, err := photo.Send(bot, m.Chat, &telebot.SendOptions{
 			ReplyTo: m,
